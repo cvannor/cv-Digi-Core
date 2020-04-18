@@ -535,7 +535,7 @@ namespace cvDigiCore.Controllers
                 {
                     if (ProfilePicture.FileName != ProfilePicPrev && ProfilePicture.FileName != null)
                     {
-                        ProfileEntity.ProfilePicture = ProfilePicPrev;
+                        ProfileEntity.ProfilePicture = ProfilePicture.FileName;
                         string webRootPath = hostingEnvironment.WebRootPath;
                         var fullPath = webRootPath + "/fileDirectory/" + "123-" + ProfilePicPrev;
                         /*if (System.IO.File.Exists(fullPath))
