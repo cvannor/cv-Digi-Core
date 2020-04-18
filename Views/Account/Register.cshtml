@@ -1,0 +1,32 @@
+﻿@using cvDigiCore.ViewModels;
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<body class="text-center">
+    <form class="form-signin" method = "post" asp-controller = "Account" asp-action = "Register" >
+        <img class="mb-4" src="~/Asset1logo.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+    </form>
+</body>
+

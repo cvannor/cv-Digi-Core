@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="contact-page">
+    <div class="container-fluid p-0">
+        <div class="contact-row row no-gutters">
+            <div class="contact-info-panel col-md-6">
+                <div class="contact-content">
+                    <h1>Contact Me</h1>
+                    <p>Im always open to talk about:</p>
+                    <ul>
+                        <li>
+                            Open Positions
+                        </li>
+                        <li>
+                            Consulting for projects
+                        </li>
+                        <li>
+                            Freelancing
+                        </li>
+                        <li>
+                            Custom Product Development
+                        </li>
+                    </ul>
+
+                    <div style="display:flex; flex-direction:column; width:100%; text-align:center;margin:0px auto 0px auto;" class="scroll-notification">
+                        <p style="padding: 0;margin: 0;">Scroll Down</p>
+                        <i class="fas fa-chevron-down fa-2x" aria-hidden="true"></i>
+                    </div>            
+
+                </div>
+
+                
+               
+            </div>
+            <div class="contact-form-wrapper col-md-6">
+                <div class="contact-form">
+                    <div class="row">
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" id="name" required="required" data-validation-required-message="Please enter your name." aria-invalid="false">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Email Address" id="email" required="required" data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required="required" data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="feedback">
+                                <img id="checked" src="~/assets/checked.png" />
+                                <img id="alert" src="~/assets/icons8-high-risk-30.png" />
+                                <div id="success">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <button type="button" onclick="contactSubmit()" class="btn send-btn btn-primary">Send</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+

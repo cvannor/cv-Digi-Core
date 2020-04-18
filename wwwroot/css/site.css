@@ -1,0 +1,700 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+nav {
+    position: fixed;
+    background-color: #3f4244;
+    min-height: calc(100vh);
+    text-align: center;
+    padding: 0 5px;
+    z-index: 9999999;
+}
+.wrapper{
+    display:flex;
+}
+
+.validation-summary-errors li, .validation-summary-errors ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-row{
+    display: inline-block;
+    margin-top:20px;
+    width: 100%;
+}
+
+.project-card-title {
+    font-size:18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+@media (min-width: 1200px){
+    .project-card-wrapper {
+        width: 19.1%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .project-card-wrapper {
+        width: 23.8%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .project-card-wrapper {
+        width: 31.8%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .project-card-wrapper {
+        width: 48%;
+    }
+
+}
+
+@media (min-width: 425px) and (max-width: 576px) {
+    .project-card-wrapper {
+        width: 48%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+    .project-card-wrapper {
+        width: 80%;
+        display: block !important;
+        margin: 0 auto 10px auto !important;
+        float: none !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .project-card-wrapper {
+        width: 90%;
+        display: block !important;
+        margin: 0 auto 10px auto !important;
+        float: none !important;
+    }
+}
+
+
+.project-card-wrapper {
+    display: inline-block;
+    color: #3f4244;
+    background: #e0e0e0;
+    margin: 0 5px 15px 5px;
+    border-radius: 8px;
+    float:left;
+}
+
+.project-card-wrapper img {
+    border-right: 2px solid #e0e0e0;
+    width: 100%;
+    height: 200px;
+    border-left: 2px solid #e0e0e0;
+    border-bottom: 0;
+    margin-top: 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.project-card-wrapper .custom-button {
+    background-color: transparent;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.project-li {
+    display: inline-block;
+    color: white;
+    padding: 3px 10px;
+    font-size: 12px;
+    border-radius: 30px;
+    background: #9fcff1;
+    border: 0;
+    font-weight: 500;
+    margin: 3px;
+}
+
+.project-card-wrapper ul {
+    display: inline-block;
+    padding: 0;
+    list-style-type: none;
+}
+
+.card-content {
+    margin-top: 12px;
+    padding: 10px;
+    height: 160px;
+    overflow-y: scroll;
+}
+
+.project-card-wrapper p {
+    font-size: 14px;
+    color: white;
+    padding: 3px 0;
+    background: #9fcff1;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+
+.inline-content {
+    display: flex;
+}
+
+.sort-dropdown {
+    width: 100px;
+    margin: 5px 5px 0px 5px;
+}
+
+.sort-choice{
+    cursor: pointer;
+}
+
+.sort-menu {
+    right: 5px;
+    position: absolute;
+    padding: 5px;
+    color: black;
+    border: 1px solid #6c757d;
+    background: white;
+    width: 130px;
+    text-align: center;
+}
+
+.flip {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    transform: rotate(180deg);
+}
+
+.activeFilter {
+    background:#1e3d52 !important;
+    border: 1px solid lightgray !important;
+}
+
+nav li{
+    text-align:center;
+    margin-bottom: 10px;
+
+}
+
+.category-row {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: 100%;
+}
+
+.category-wrapper {
+    padding: 10px 0px 0px 0;
+    background-color: whitesmoke;
+    border-top: 2px solid lightgrey;
+}
+
+.activeLink {
+    color: #3fa9f5;
+    border-bottom: solid 1px #3fa9f5;
+}
+
+.category-row, .subcategory-row {
+    display: inline-block;
+    overflow-x: scroll;
+}
+
+.subcategory-row {
+    width: 100%;
+    display: inline-block;
+    overflow-x: scroll;
+    padding: 10px 0;
+}
+
+
+
+.filter-btn {
+    display: inline-block;
+    color: white;
+    padding: 3px 10px;
+    font-size: 12px;
+    border-radius: 30px;
+    background: #9fcff1;
+    border: 0;
+    font-weight: 500;
+    margin: 3px;
+}
+
+nav button{
+    padding: 0;
+    margin: 5px auto;
+}
+.sidenav {
+    width: 108px;
+    padding: 0;
+    z-index: 99;
+    min-height: calc(100vh);
+}
+a.navbar-brand {
+  white-space: normal;
+  word-break: break-all;
+  margin-bottom: 10px;
+}
+
+.navbar-brand {
+    margin: 0 !important;
+    padding: 10px 0;
+}
+
+
+.navbar-brand2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 9;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: gray;
+}
+
+.category-row::-webkit-scrollbar, .category-row::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    height: 2px;
+    border-radius: 60px;
+}
+
+.card-content::-webkit-scrollbar, .category-row::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    height: 1px;
+    width: 1px;
+    border-radius: 60px;
+}
+
+.subcategory-row::-webkit-scrollbar, .subcategory-row::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    height: 2px;
+    border-radius: 60px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6b858c;
+    border-radius: 6px;
+    height: 5px;
+}
+
+
+.navbar-brand img, .navbar-brand2 img{
+    width: 45px;
+}
+
+.main{
+    width:100%;
+    color: white;
+    height: 100%;
+    padding: 0;
+}
+
+.index {
+    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url("../assets/Group2.png");
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: calc(100vh + 180px);
+    width: 100%;
+}
+
+.custom-button {
+    font-size: 18px;
+    /*background: #147c92;*/
+    color: white;
+    padding: 8px 10px;
+    width: 160px;
+    border-radius: 50px;
+    border: none;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.card-1 {
+    background-color: #087787;
+}
+.card-2 {
+    background-color: #009f9c;
+}
+
+.card-3 {
+    background-color: #2a5a79;
+}
+
+
+.tile i{
+    display: inline-block;
+    float: right;
+    margin-top: 20px;
+}
+
+.tile h4{
+    display: inline-block;
+}
+.tile-3 {
+    background: #1b45a7;
+}
+.tile-2 {
+    background: #2255ce;
+}
+.tile-1 {
+    background: #153684;
+}
+.tile{
+    padding: 10px 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.main main {
+    font-weight: 500;
+}
+
+.card {
+    border-radius: 0;
+    border: none;
+    text-align: center;
+    -webkit-box-shadow: 0px 4px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 14px -6px rgba(0,0,0,0.75);
+    padding: 30px 10px;
+}
+
+.card-body {
+    color: #f9f9f9;
+    font-size: 15px;
+}
+
+.card-body h6 {
+    font-weight: 600;
+}
+
+.card-body p{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.custom-button:hover{
+    background-color: white;
+    color: #1861ac;
+}
+
+.project-card-wrapper .custom-button:hover {
+    background-color: #9fcff1;
+    color: white;
+}
+
+.about-page{
+    color: black;
+}
+
+.card img{
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 0px auto;
+}
+
+.about-header img {
+    border: 1px solid lightgrey;
+    width: 80px;
+    border-radius: 10px;
+    height: 80px;
+}
+
+.about-header h2 {
+    margin: 20px 0 10px 20px;
+}
+
+.skills-container {
+    color: white;
+    text-align: center;
+    background: #3fa9f5;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.about-container{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+
+
+.skills-container h5 {
+    width: 250px;
+    padding-bottom: 10px;
+    margin: 0 auto 30px auto;
+    border-bottom: 2px solid lightgray;
+}
+
+.about-page .row{
+    height: 100vh;
+}
+
+.skills ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.contact-page form{
+    width: 100%;
+}
+
+#checked, #alert{
+    width: 30px;
+    display: none;
+}
+
+.contact-form{
+    padding: 40px 80px;
+}
+
+.contact-form-wrapper {
+    background: #1c1c21;
+    padding-top: 20px;
+}
+
+@media (min-width: 768px){
+    .scroll-notification{
+        display:none !important;
+    }
+}
+
+.contact-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0px 0 20px;
+}
+
+.contact-row{
+    height: 100vh;
+}
+
+.contact-info-panel {
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../assets/black-samsung-tablet-computer-106344.jpg");
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.contact-info-panel h1, .contact-info-panel li{
+    margin-bottom: 30px;
+}
+
+.skills{
+    padding: 0 15px;
+}
+
+.skills li {
+    font-size: 12px;
+    border: 2px solid white;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 10px;
+    margin: 4px
+}
+
+.skills li:hover {
+    color: #3fa9f5;
+    background: white;
+}
+
+.about-buttons {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.biography{
+    padding: 0 40px;
+}
+
+.about-buttons a {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    color: #3fa9f5;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.card a{
+    /*color: #393939;*/
+    text-decoration: none;
+    margin: 0 auto;
+    float: none;
+}
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.tiles-2 a{
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-link i{
+    display:block;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+nav ul li, nav a, nav button{
+    display: block !important;
+    color: white;
+}
+
+.header-cont{
+    padding-top: 60px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.collapsed{
+    display: none;
+    width: 0px;
+}
+
+.index-cont{
+    text-align: center;
+}
+
+.button-block button {
+    background: #161616;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid;
+    border-left: none;
+    color: white;
+    border: none;
+    position: fixed;
+    left: 0;
+    top: 160px;
+    z-index: 999;
+}
+
+@media (min-width: 576px) {
+    .button-block{
+        display: none;
+    }
+
+    .navbar-brand2{
+        display: none;
+    }
+
+}
+
+@media (min-width: 900px) {
+    .index h1{
+        font-size: 60px;
+        font-weight: 500;
+    }
+   
+}
+
+@media (max-width: 900px) {
+    .header-cont {
+        padding-top: 20px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .cards .col-md-4 {
+        padding: 0;
+    }
+
+    .card{
+        padding: 30px 0px;
+    }
+
+    .index-cont {
+        min-width: 100%;
+    }
+}
+
+.cards{
+    padding-bottom: 20px;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+    .sidenav {
+        width: 92px;
+    }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+body {
+    /* Margin bottom by footer height */
+    font-family: 'IBM Plex Mono', monospace;
+    min-height: 100%;
+}
+.footer {
+/*position: absolute;*/
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

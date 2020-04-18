@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curtis Vannor | Engineering Grad | Developer | Creative</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="~/Asset1logo.png" sizes="16x16" />
+</head>
+<body>
+
+    <div class="container" style="color:#5fb6f4;padding-top: 60px;">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                @RenderBody()
+
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        
+        <footer class="footer text-muted">
+            <p>&copy; 2020 - Curtis Vannor</p>
+        </footer>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/10010f3497.js" crossorigin="anonymous"></script>
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

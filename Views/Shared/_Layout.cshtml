@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curtis Vannor | Engineering Grad | Developer | Creative</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="~/Asset1logo.png" sizes="16x16" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="button-block">
+            <button class="toggled-toggler" type="button" onclick="toggleNav()" aria-label="Toggle navigation">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+        </div>
+        <div class="sidenav">
+
+            <header>
+                <nav>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Asset1logo.png" /></a>
+                    <div class="links">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a id="0" class="nav-link activeLink" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i><label>Home</label></a>
+                               
+                            </li>
+                            <li class="nav-item">
+                                <a id="1" class="nav-link" asp-area="" asp-controller="Home" asp-action="About"><i class="far fa-address-card"></i><label>About</label></a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a id="2" class="nav-link" asp-area="" asp-controller="Home" asp-action="Portfolio"><i class="far fa-folder-open"></i><label>Portfolio</label></a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a id="3" class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact"><i class="fas fa-mobile-alt"></i><label>Contact</label></a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://github.com/" target="_blank">
+                                    <img style="width: 35px; border-radius: 3px"
+                                         src="~/assets/iconfinder_github_410524.png" />
+                                </a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   href="https://www.linkedin.com/in/curtisvannor"
+                                   target="_blank">
+                                    <img style="width: 35px; border-radius: 3px"
+                                         src="~/assets/iconfinder_linkedin_410519.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+        </div>
+        <div class="main">
+            <!--<a class="navbar-brand2" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Asset1logo.png" /></a>-->
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+            <footer class="footer text-muted">
+                <p>&copy; 2020 - Curtis Vannor</p>
+            </footer>
+        </div>
+
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/10010f3497.js" crossorigin="anonymous"></script>
+    <script src="~/js/filter.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

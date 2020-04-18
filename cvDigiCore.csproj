@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200317234214_Newest-migration.cs" />
+    <Compile Remove="Migrations\20200317234214_Newest-migration.Designer.cs" />
+    <Compile Remove="Migrations\20200318001257_new-migration.cs" />
+    <Compile Remove="Migrations\20200318001257_new-migration.Designer.cs" />
+    <Compile Remove="Migrations\20200318010853_configMigration.cs" />
+    <Compile Remove="Migrations\20200318010853_configMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200318013711_configMigration2.cs" />
+    <Compile Remove="Migrations\20200318013711_configMigration2.Designer.cs" />
+    <Compile Remove="Migrations\20200318074430_newConfig.cs" />
+    <Compile Remove="Migrations\20200318074430_newConfig.Designer.cs" />
+    <Compile Remove="Migrations\20200318082234_newConfig.cs" />
+    <Compile Remove="Migrations\20200318082234_newConfig.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\fileDirectory\Projects\" />
+    <Folder Include="wwwroot\fileDirectory\Profile\" />
+    <Folder Include="wwwroot\fileDirectory\Projects\Images\" />
+  </ItemGroup>
+
+
+
+</Project>

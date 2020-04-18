@@ -1,0 +1,232 @@
+﻿@model cvDigiCore.Models.Project
+@{
+    ViewData["Title"] = "Project";
+}
+
+
+    <form enctype="multipart/form-data" asp-action="Project" asp-controller="Dashboard">
+        @Html.AntiForgeryToken()
+        @if (!ViewBag.isNew)
+        {
+            
+        <div class="container-fluid">
+            <div class="form-row">
+                <div class="col-md-9 mb-3">
+                    <h2>@Model.Name</h2>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <button class="btn btn-info form-control" type="submit">Save Project</button>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-8">
+                    <div class="form-row">
+                        <input type="hidden" asp-for="ID" name="ID" value="@Model.ID" />
+                        <input type="hidden" asp-for="DateAdded" name="DateAdded" value="@Model.DateAdded" />
+                        <label for="validationDefault01">Name</label>
+                        <input type="text" asp-for="Name" value="@Model.Name" class="form-control" id="validationDefault01" required>
+                        <p>Date Added : @Model.DateAdded</p>
+                    </div>
+                    <div class="form-row">
+                        <label for="validationDefault05">Description</label>
+                        <textarea style="height: 200px;" class="form-control" asp-for="Description" required>@Model.Description</textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="validationDefault05">Images</label>
+                        <div class="custom-file">
+                            <input type="file" class="form-control custom-file-input" name="Images" id="validationDefault02" accept=".jpg, .png" multiple>
+                            <label class="custom-file-label" for="validationDefault05">Images</label>
+
+                        </div>
+                        <ul style="width: 100%;max-height: 80px;overflow-y: scroll;border: 1px solid lightgray;border-top: 0;padding-left: 20px;" class="text-decoration-none list-unstyled">
+                            @if (Model.Images != null)
+                            {
+                                @foreach (var image in Model.Images)
+                                {
+                                    <!--<a asp-controller="Dashboard" asp-action="DeleteImage" asp-route-id="" class="close close-custom"><span>X</span></a>-->
+                                    <li style="display:flex;" class="text-decoration-none p-0 m-0"><p>@image.Path</p><button type='button' onclick="DeleteImage(@image.ID,this)" class="close close-custom"><span>X</span></button></li>
+                                    <!--<button id="deleteImgBtn" value="" class="close close-custom"><span>X</span></button>-->
+                                }
+                            }
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div style="padding-bottom:20px;" class="col-md-4">
+                    <label>Choose project categories</label>
+                    <select id="@Model.ID" onchange="selectProjectCategory(this)" class="custom-select cat-select">
+                        <option default>Choose categories</option>
+                        @foreach (var cat in ViewBag.Categories)
+                        {
+                            if (cat.ParentId == null || cat.ParentId == 0)
+                            {
+                                <option class="cat-option" value="@cat.ID">@cat.Name</option>
+
+                            }
+                        }
+
+                    </select>
+                    <div class="project-cats">
+                        @if (Model.Bridges != null)
+                        {
+                            @for (int i = 0; i < Model.Bridges.Count(); i++)
+                            {
+
+                            
+                            if (Model.Bridges[i].ParentId == null || Model.Bridges[i].ParentId == 0)
+                            {
+                            
+                            <div id="wrapper-@Model.Bridges[i].Category.ID" class="input-wrapper">
+                                <input type="hidden" value="@i" name="pBridges.Index">
+                                <input type="hidden" class="initial-cat-id" value="@Model.Bridges[i].Category.ID" name="pBridges[@i].Category.ID" />
+                                <input type="text" class="form-control initial-cat" value="@Model.Bridges[i].Category.Name" placeholder="@Model.Bridges[i].Category.Name" name="pBridges[@i].Category.Name" readonly="readonly" />
+                                <button type="button" onclick="DeleteChild(this, @Model.Bridges[i].Category.ID, '@Model.Bridges[i].Category.Name',true)" class="btn btn-danger btn-sm">Remove</button>
+                            </div>
+
+                            <ul id="list-@Model.Bridges[i].Category.ID" class="list-unstyled subcat-list">
+                                <label class="subcat-label">Choose sub categories</label>
+                                @for (int j = 0; j < ViewBag.Categories.Count; j++)
+                                {
+                                    <input type="hidden" value="@j+@i+35" name="pBridges.Index">
+                                    @if ((ViewBag.Categories[j].ParentId == null && !Model.Parents.Contains(ViewBag.Categories[j].ID)) || ViewBag.Categories[j].ParentId == Model.Bridges[i].Category.ID)
+                                    {
+                                        if (ViewBag.Children.Contains(ViewBag.Categories[j].ID))
+                                        {
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="hidden" value="@ViewBag.Categories[j].Name" name="pBridges[@j+@i+35].Category.Name">
+                                                    <input type="hidden" id="@Model.Bridges[i].Category.ID" value="@j+@i" name="index-@j+@i">
+                                                    <input checked type="checkbox" id="@Model.Bridges[i].Category.ID" value="@ViewBag.Categories[j].ID" name="pBridges[@j+@i+35].Category.ID" class="init-check @j+@i check-@ViewBag.Categories[j].ID" onclick="addSubCategoryToList(@Model.Bridges[i].Category.ID, this, '@j+@i+35', @ViewBag.Categories[j].ID )">
+                                                    <label>@ViewBag.Categories[j].Name</label>
+                                                </div>
+
+                                            </li>
+
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <div class="checkbox">
+                                                    <input type="hidden" value="@ViewBag.Categories[j].Name" name="pBridges[@j+@i+35].Category.Name">
+                                                    <input type="hidden" id="@Model.Bridges[i].Category.ID" value="@j+@i" name="index-@j+@i">
+
+                                                    <input type="checkbox" id="@Model.Bridges[i].Category.ID" value="@ViewBag.Categories[j].ID" name="pBridges[@j+@i+35].Category.ID" class="init-check @j+@i check-@ViewBag.Categories[j].ID" onclick="addSubCategoryToList(@Model.Bridges[i].Category.ID, this, '@j+@i+35', @ViewBag.Categories[j].ID )">
+                                                    <label>@ViewBag.Categories[j].Name</label>
+                                                </div>
+
+                                            </li>
+
+                                        }
+
+                                    }
+                                }
+
+                            </ul>
+
+                            }
+
+                    
+                            }
+                        }
+
+                    </div>
+                    <label style="margin-top:10px" for="validationDefault01">Add Category</label>
+                    <input type="text" name="catName" class="form-control">
+                    <button style="margin-top:10px" onclick="addCategory('catName')" class="btn btn-info form-control" type="button">Add</button>
+                </div>
+            </div>
+
+        </div>
+            
+
+        }
+        else
+        {
+    <div class="container-fluid">
+        <div class="form-row">
+            <div class="col-md-9 mb-3">
+                <h2>Add Project</h2>
+            </div>
+            <div class="col-md-3 mb-3">
+                <button class="btn btn-info form-control" type="submit">Create Project</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-8">
+                <div class="form-row">
+                    <label for="validationDefault01">Name</label>
+                    <input type="text" asp-for="Name" class="form-control" id="validationDefault01" required>
+
+                </div>
+                <div class="form-row">
+                    <label for="validationDefault05">Description</label>
+                    <textarea style="height: 200px;"  class="form-control" asp-for="Description"></textarea>
+
+                </div>
+                <div class="form-row">
+                    <label for="validationDefault05">Images</label>
+                    <div class="custom-file">
+                        <input type="file" class="form-control custom-file-input" name="Images" id="validationDefault02" accept=".jpg, .png" multiple required>
+                        <label class="custom-file-label" for="validationDefault05">Images</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <label>Choose project categories</label>
+                <select id="" onchange="selectProjectCategory(this)" class="custom-select cat-select">
+                    <option default>Choose categories</option>
+                    @foreach (var cat in ViewBag.Categories)
+                    {
+                        if (cat.ParentId == null || cat.ParentId == 0)
+                        {
+                            <option class="cat-option" value="@cat.ID">@cat.Name</option>
+
+                        }
+                    }
+
+                </select>
+                <div class="project-cats">
+
+                </div>
+                <label style="margin-top:10px" for="validationDefault01">Add Category</label>
+                <input type="text" name="catName" class="form-control">
+                <button style="margin-top:10px" class="btn btn-info form-control" onclick="addCategory('catName')" type="button">Add</button>
+            </div>
+        </div>
+    </div>
+        }
+    </form>
+
+
+
+
+@section Scripts{
+    <script>
+
+        //var quill = new Quill('#editor', {
+        //    modules: {
+        //        toolbar: [
+        //            ['bold', 'italic'],
+        //            ['link', 'blockquote', 'code-block', 'image'],
+        //            [{ list: 'ordered' }, { list: 'bullet' }]
+        //        ]
+        //    },
+        //    placeholder: 'Compose an epic...',
+        //    theme: 'snow'
+        //});
+
+        //var form = document.querySelector('form');
+        //form.onsubmit = function() {
+        //    // Populate hidden form on submit
+        //    var desc = document.querySelector('input[name=Description]');
+        //    desc.value = JSON.stringify(quill.getContents());
+        //    console.log(desc.value);
+
+        //};
+                
+
+    </script>
+
+}

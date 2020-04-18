@@ -1,0 +1,139 @@
+﻿@model cvDigiCore.Models.Profile
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+<form enctype="multipart/form-data" asp-action="Profile" asp-controller="Dashboard">
+    @Html.AntiForgeryToken()
+    @if (!ViewBag.isNew)
+    {
+        <div class="form-row">
+            <div class="col-md-9"><h2>@ViewData["Title"]</h2></div>
+            <div class="col-md-3"><button class="btn btn-info form-control" type="submit">Save Profile</button></div>
+        </div>
+
+
+        <div class="form-row">
+            <input type="hidden" asp-for="ID" name="ID" value="@Model.ID" />
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Name</label>
+                <input type="text" asp-for="Name" value="@Model.Name" class="form-control" id="validationDefault01" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Email</label>
+                <input type="text" asp-for="Email" value="@Model.Email" class="form-control" id="validationDefault02" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Phone</label>
+                <input type="text" asp-for="Phone" value="@Model.Phone" class="form-control" id="validationDefault02" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault05">Resume</label>
+                <div class="custom-file">
+                    <input type="file" class="form-control custom-file-input" name="Resume" id="validationDefault002" accept=".doc, .pdf, .docx" >
+                    <label class="custom-file-label" for="validationDefault002">@Model.Resume</label>
+                </div>
+                <input name="ResumePrev" value="@Model.Resume" type="hidden" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault05">Logo</label>
+                <div class="custom-file">
+                    <input type="file" class=" form-control custom-file-input" name="Logo" id="validationDefault112" accept=".jpg, .png" >
+                    <label class="custom-file-label" for="validationDefault112">@Model.Logo</label>
+                </div>
+                <input name="LogoPrev" value="@Model.Logo" type="hidden" />
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault05">Profile Picture</label>
+                <div class="custom-file">
+                    <input type="file" class="form-control custom-file-input" name="ProfilePicture" id="validationDefault032" accept=".jpg, .png" >
+                    <label class="custom-file-label" for="validationDefault032">@Model.ProfilePicture</label>
+                </div>
+                <input name="ProfilePicPrev" value="@Model.ProfilePicture" type="hidden" />
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 mb-3">
+                <label for="validationDefault05">Bio</label>
+                <textarea style="margin-top: 0px; margin-bottom: 0px; height: 198px;" class="form-control" asp-for="Bio" placeholder="Enter Bio..." required>@Model.Bio</textarea>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="form-row">
+            <div class="col-md-9"><h2>@ViewData["Title"]</h2></div>
+            <div class="col-md-3"><button class="btn btn-info form-control" type="submit">Create Profile</button></div>
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Name</label>
+                <input type="text" asp-for="Name" class="form-control" id="validationDefault01" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Email</label>
+                <input type="text" asp-for="Email" class="form-control" id="validationDefault02" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Phone</label>
+                <input type="text" asp-for="Phone" class="form-control" id="validationDefault02" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault05">Resume</label>
+                <div class="custom-file">
+                    <input type="file" class="form-control custom-file-input" name="Resume" id="validationDefault02" accept=".dpc, .pdf, .docx" required>
+                    <label class="custom-file-label" for="validationDefault05">Resume</label>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault05">Logo</label>
+                <div class="custom-file">
+                    <input type="file" class="form-control custom-file-input" name="Logo" id="validationDefault02" accept=".jpg, .png" required>
+                    <label class="custom-file-label" for="validationDefault05">Logo</label>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault05">Profile Picture</label>
+
+                <div class="custom-file">
+                    <input type="file" class="form-control custom-file-input" name="ProfilePicture" id="validationDefault02" accept=".jpg, .png">
+                    <label class="custom-file-label" for="validationDefault05">Profile Picture</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 mb-3">
+                <label for="validationDefault05">Bio</label>
+                <textarea style="margin-top: 0px; margin-bottom: 0px; height: 198px;" class="form-control" asp-for="Bio" placeholder="Enter Bio..." required></textarea>
+            </div>
+        </div>
+
+    }
+
+    @section Scripts{
+        <script>
+            $(document).ready(function () {
+                $('.custom-file-input').on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+            });
+
+
+
+        </script>
+
+    }
+</form>
+

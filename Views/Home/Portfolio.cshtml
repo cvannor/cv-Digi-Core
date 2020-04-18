@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Portfolio";
+}
+
+    <div class="portfolio">
+        <div style="width:100%;height:100%;">
+            <div class="category-wrapper">
+                <p style="color:black;margin: 0 0 10px 10px;">Filter by Category:</p>
+                <div class="inline-content">
+                    <div class="category-row">
+                        <button class="filter-btn" type="button" onclick="filterProducts(this)" value="0">All</button>
+                    </div>
+                    <div class="sort dropdown" style="border-bottom: 2px solid lightgray;">
+                        <button class="btn btn-secondary btn-sm sort-dropdown" type="button" id="dropdownMenuButton">
+                            Sort Items
+                        </button>
+                        <div style="display:none;" class="sort-menu">
+                            <a class="sort-choice" onclick="renderProjects('date')">Date added<i class="sort-icon fas fa-arrow-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subcategory-row">
+
+            </div>
+            
+            <div class="project-row">
+                <p style="color: black;">Please wait...</p>
+            </div>
+        </div>
+    </div>
+
