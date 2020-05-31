@@ -188,6 +188,25 @@ namespace cvDigiCore.Controllers
             return Json(new { success = true, msg = "Image delete success" });
         }
 
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProfilePic(int id)
+        {
+            var profile = await _db.Profile.FirstOrDefaultAsync(u => u.ID == id);
+
+            if(profile.ProfilePicture == null)
+            {
+                return Json(new { success = true, msg = "Already null" });
+            }
+            profile.ProfilePicture = null;
+
+            _db.Update(profile);
+
+            _db.SaveChangesAsync();
+
+            return Json(new { success = true, msg = "Image delete success" });
+        }
+
         public async Task<IActionResult>DeleteProject(int id)
         {
             var project = await _db.Project.FirstOrDefaultAsync(u => u.ID == id);
@@ -269,6 +288,9 @@ namespace cvDigiCore.Controllers
             }
             return false;
         }
+
+
+
 
 
 

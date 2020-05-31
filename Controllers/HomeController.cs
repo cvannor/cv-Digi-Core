@@ -9,6 +9,7 @@ using cvDigiCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using cvDigiCore.ViewModels;
+using System.Net.Mail;
 
 namespace cvDigiCore.Controllers
 {
@@ -103,6 +104,13 @@ namespace cvDigiCore.Controllers
             return View();
         }
 
+        public async Task<IActionResult> EntryAsync(int? id)
+        {
+
+            var Project = await _db.Project.FindAsync(id);
+            return View(Project);
+        }
+
         public IActionResult Portfolio()
         {
             return View();
@@ -110,12 +118,51 @@ namespace cvDigiCore.Controllers
 
         public IActionResult Contact()
         {
+            
             return View();
         }
 
+        [HttpPost]
+        public IActionResult ContactAction(string name, string email, string phone, string message, bool save)
+        {
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("cvannor63@gmail.com");
+            mailMessage.To.Add("cvannor63@gmail.com");
+            mailMessage.Subject = ("Buisness inquiry from " + name + " on buisness portfolio site!");
+            mailMessage.Body = "<b>Sender Name : </b>" + name + "<br/>" + "<b>Sender Email : </b>" + email + "<br/>" + "<b>Sender Phone : </b>" + phone + "<br/>" + "<b>Message : </b>" + message + "<br/>";
+            mailMessage.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = true;
+
+            smtpClient.Credentials = new System.Net.NetworkCredential("cvannor63@gmail.com", "2$&4*'*<=#%");
+            smtpClient.Send(mailMessage);
+
+            if (save)
+            {
+                cvDigiCore.Models.Contact contact = new Contact();
+                contact.EmailAddress = email;
+                contact.Name = name;
+                contact.Phone = phone;
+                _db.Add(contact);
+                _db.SaveChanges();
+
+            }
+
+            return Json(new
+            {
+                success = true,
+                msg = "Thank you! I will be reaching out to you shortly!"
+            });
+        }
+
+
+
         public IActionResult Resume()
         {
-            return View();
+            var profile = _db.Profile.FirstOrDefault();
+            return View(profile);
         }
 
         public IActionResult About()

@@ -21,6 +21,8 @@ namespace cvDigiCore.Models
         public string Description { get; set; }
         public IList<Images> Images { get; set; }
 
+        public string Link { get; set; }
+
         [NotMapped]
         public IList<int?> Parents { get; set; }
         public virtual IList<Bridge> Bridges { get; set; }

@@ -33,7 +33,7 @@
             <div class="col-md-4 mb-3">
                 <label for="validationDefault05">Resume</label>
                 <div class="custom-file">
-                    <input type="file" class="form-control custom-file-input" name="Resume" id="validationDefault002" accept=".doc, .pdf, .docx" >
+                    <input type="file" class="form-control custom-file-input" name="Resume" id="validationDefault002" accept=".pdf" >
                     <label class="custom-file-label" for="validationDefault002">@Model.Resume</label>
                 </div>
                 <input name="ResumePrev" value="@Model.Resume" type="hidden" />
@@ -50,10 +50,15 @@
             <div class="col-md-4 mb-3">
                 <label for="validationDefault05">Profile Picture</label>
                 <div class="custom-file">
-                    <input type="file" class="form-control custom-file-input" name="ProfilePicture" id="validationDefault032" accept=".jpg, .png" >
-                    <label class="custom-file-label" for="validationDefault032">@Model.ProfilePicture</label>
+                    <input type="file" class="form-control custom-file-input" name="ProfilePicture" accept=".jpg, .png">
+                    <label class="custom-file-label" id="profilePic" for="validationDefault032">@Model.ProfilePicture</label>
                 </div>
                 <input name="ProfilePicPrev" value="@Model.ProfilePicture" type="hidden" />
+                @if (Model.ProfilePicture != null)
+                {
+                    <button type='button' onclick="deleteProfilePic(@Model.ID)" class="close prof-btn close-custom"><span>X</span></button>
+
+                }
 
             </div>
         </div>

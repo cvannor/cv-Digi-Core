@@ -12,8 +12,19 @@ $(document).ready(function () {
             if (data != null) {
                 projects = data.projects;
                 categories = JSON.parse(data.categories);
-                renderCategories();
-                renderProjects();
+                console.log(projects);
+                if (projects.length > 0) {
+                    renderCategories();
+                    renderProjects();
+                }
+                else {
+                    $(".project-row").empty();
+                    var alertMsg = document.createElement("h2");
+                    alertMsg.setAttribute("style", "color:black; margin-left:20px;");
+                    alertMsg.innerText = "No projects yet! Come back soon!";
+                    $(".project-row").append(alertMsg);
+
+                }
                
 
             } else {
@@ -71,6 +82,9 @@ function renderProjects(sort) {
 
             var link = document.createElement("a");
             link.setAttribute("class", "project-link");
+            link.innerText = "View Entry";
+            link.href = "https://localhost:44386/Home/Entry/" + val.id;
+
 
             var i = 0;
             for (var key in categories) {
@@ -92,13 +106,13 @@ function renderProjects(sort) {
             var img = document.createElement("img");
             img.setAttribute("src", "/fileDirectory/Projects/Images/" + val.img)
 
-            link.appendChild(img);
 
             content.appendChild(title);
             content.appendChild(cats);
 
-            card.appendChild(link);
+            card.appendChild(img);
             card.appendChild(content);
+            card.appendChild(link);
             card.appendChild(date);
 
 

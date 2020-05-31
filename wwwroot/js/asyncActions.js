@@ -221,6 +221,23 @@ function renderSubCatHTML(el, categories, iterator, parents ) {
 }
 
 
+function deleteProfilePic(x) {
+    $.ajax({
+        type: "DELETE",
+        url: '/Dashboard/DeleteProfilePic?id=' + x,
+        success: function (data) {
+            if (data.success) {
+                console.log(data.msg);
+                $('#profilePic').text("");
+            } else {
+                alert(data.msg);
+
+            }
+        }
+    });
+}
+
+
 function addSubCategoryToList(id, el, i, selfid) {
     var similar = document.getElementsByClassName("check-" + selfid);
     var p = document.getElementById("parent-" + selfid);
@@ -238,12 +255,7 @@ function addSubCategoryToList(id, el, i, selfid) {
                 similar[i].parentNode.parentElement.style.display = 'none';
             }
         }
-        //for (var i = 0; i < options.length; i++) {
-        //    if (selfid == options[i].value) {
-        //        options[i].style.display = 'none';
-        //    } 
 
-        //}
         selected.push(selfid);
     } else {
         $("#parent-" + selfid).remove();
@@ -342,48 +354,6 @@ function selectProjectCategory(el) {
             }
         }
     });
-
-    //child.setAttribute("class", "project-cat");
-    //var indexInput = document.createElement("INPUT");
-    //indexInput.setAttribute("type", "hidden");
-    //indexInput.setAttribute("value", iterator);
-    //indexInput.setAttribute("name", "categories.Index");
-
-    //var parentIdInput = document.createElement("INPUT");
-    //parentIdInput.setAttribute("type", "hidden");
-    //parentIdInput.setAttribute("value", parentId);
-    //parentIdInput.setAttribute("name", "categories[" + iterator + "].ParentId");
-
-    //var projectIdInput = document.createElement("INPUT");
-    //projectIdInput.setAttribute("type", "hidden");
-    //projectIdInput.setAttribute("value", projectId);
-    //projectIdInput.setAttribute("name", "categories[" + iterator + "].ProjectID");
-
-    //var idInput = document.createElement("INPUT");
-    //idInput.setAttribute("type", "hidden");
-    //idInput.setAttribute("value", val);
-    //idInput.setAttribute("name", "categories[" + iterator + "].ID");
-
-    //var childInput = document.createElement("INPUT");
-    //childInput.setAttribute("type", "text");
-    //childInput.setAttribute("value", content);
-    //childInput.setAttribute("readonly", "readonly");
-    //childInput.setAttribute("name", "categories[" + iterator + "].Name");
-    //childInput.setAttribute("placeholder", content);
-    //childInput.setAttribute("class", "form-control");
-
-    //var btn = document.createElement("BUTTON");
-    //btn.setAttribute("type", "button");
-    //btn.setAttribute("onclick", "DeleteChild(this, " + val + ", \"" + content + "\"," + true + ")");
-    //btn.setAttribute("class", "btn btn-danger btn-sm");
-    //btn.innerText = "Delete";
-
-    //child.append(indexInput);
-    //child.append(parentIdInput);
-    //child.append(projectIdInput);
-    //child.append(idInput);
-    //child.append(childInput);
-    //child.append(btn);
 
 }
 
@@ -558,26 +528,5 @@ function DeleteChild(el, id, name, sub) {
     var thisWrapper = document.getElementById("wrapper-" + id);
     thisLI.remove();
     thisWrapper.remove();
-    //$(el).parent().remove();
-    //$.ajax({
-    //    type: "DELETE",
-    //    url: '/Dashboard/DeleteCategory?id=' + id + '&subcategory=' + sub,
-    //    success: function (data) {
-    //        if (data.success) {
-    //            console.log(data.msg);
-    //            var sel = document.createElement("OPTION");
-    //            sel.setAttribute("value", id);
-    //            sel.innerText = name;
-                
-    //            $('.child-select').append(sel);
-    //        } else {
-    //            console.log(data.msg);
-
-    //        }
-    //    }
-    //});
-    //if (id != undefined || name != undefined) {
-    //    $('.child-select').append(sel);
-    //}
 }
 

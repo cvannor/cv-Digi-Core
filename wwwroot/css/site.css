@@ -19,6 +19,11 @@ nav {
     margin: 0;
 }
 
+.doc{
+    width: 100%;
+    height: 500px;
+}
+
 .project-row{
     display: inline-block;
     margin-top:20px;
@@ -26,8 +31,8 @@ nav {
 }
 
 .project-card-title {
-    font-size:18px;
-    padding-bottom: 10px;
+    font-size: 18px;
+    padding-bottom: 30px;
     border-bottom: 1px solid lightgrey;
 }
 
@@ -119,6 +124,19 @@ nav {
     margin: 3px;
 }
 
+.project-link {
+    border-left: none;
+    border-radius: 30px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    margin: 0 auto;
+    color: #3f4244;
+    background: white;
+    padding: 3px 10px;
+    top: -127px;
+    left: 5px;
+}
+
 .project-card-wrapper ul {
     display: inline-block;
     padding: 0;
@@ -126,7 +144,7 @@ nav {
 }
 
 .card-content {
-    margin-top: 12px;
+    /*margin-top: 12px;*/
     padding: 10px;
     height: 160px;
     overflow-y: scroll;
@@ -237,6 +255,9 @@ nav button{
     padding: 0;
     z-index: 99;
     min-height: calc(100vh);
+    -webkit-box-shadow: 3px 0px 18px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 0px 18px -6px rgba(0,0,0,0.75);
+    box-shadow: 3px 0px 18px -6px rgba(0,0,0,0.75);
 }
 a.navbar-brand {
   white-space: normal;
@@ -395,8 +416,12 @@ a.navbar-brand {
     color: white;
 }
 
-.about-page{
+.about-page {
     color: black;
+}
+
+.about-page .row {
+    min-height: 100vh;
 }
 
 .card img{
@@ -418,16 +443,21 @@ a.navbar-brand {
 }
 
 .skills-container {
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7)), url("../assets/windows-Mf6CGFugT38-unsplash.jpg");
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
     color: white;
     text-align: center;
-    background: #3fa9f5;
+    /*background: #3fa9f5;*/
     padding-top: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
-.about-container{
+.about-container {
     padding-top: 30px;
     padding-bottom: 20px;
+    background: #e6e6e6;
 }
 
 
@@ -437,10 +467,6 @@ a.navbar-brand {
     padding-bottom: 10px;
     margin: 0 auto 30px auto;
     border-bottom: 2px solid lightgray;
-}
-
-.about-page .row{
-    height: 100vh;
 }
 
 .skills ul {
@@ -460,12 +486,15 @@ a.navbar-brand {
 }
 
 .contact-form{
-    padding: 40px 80px;
+    padding: 20px 80px;
 }
 
 .contact-form-wrapper {
-    background: #1c1c21;
-    padding-top: 20px;
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../assets/black-samsung-tablet-computer-106344.jpg");
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+
 }
 
 @media (min-width: 768px){
@@ -487,15 +516,20 @@ a.navbar-brand {
     margin: 0;
 }
 
-.contact-row{
-    height: 100vh;
+
+.feedback{
+    display: inline-block;
+}
+
+.contact-title {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .contact-info-panel {
-    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../assets/black-samsung-tablet-computer-106344.jpg");
-    background-size: cover; /* or contain depending on what you want */
-    background-position: center center;
-    background-repeat: no-repeat;
+    background: #1c1c21;
+    padding-top: 20px;
 }
 
 .contact-info-panel h1{
@@ -508,13 +542,14 @@ a.navbar-brand {
 
 }
 
-    .skills {
-        padding: 0 15px;
-    }
+.skills {
+    padding: 0 15px;
+}
 
 .skills li {
     font-size: 12px;
     border: 2px solid white;
+    font-weight: 600;
     border-radius: 20px;
     display: inline-block;
     padding: 10px;
@@ -535,6 +570,10 @@ a.navbar-brand {
 
 .biography{
     padding: 0 40px;
+}
+
+.resume-wrapper{
+    text-align: center;
 }
 
 .about-buttons a {
@@ -583,6 +622,10 @@ nav ul li, nav a, nav button{
     color: white;
 }
 
+.portfolio {
+    min-height: calc(100vh + 5px);
+}
+
 .header-cont{
     padding-top: 60px;
     padding-bottom: 20px;
@@ -592,6 +635,10 @@ nav ul li, nav a, nav button{
 .collapsed{
     display: none;
     width: 0px;
+}
+
+.send-btn {
+    width: 100%;
 }
 
 .index-cont{

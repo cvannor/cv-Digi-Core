@@ -78,6 +78,11 @@ body {
     display: flex;
 }
 
+.prof-btn {
+    position: relative;
+    top: -48px;
+}
+
 .subcat-list {
     border: 1px solid lightgrey;
     height: 100px;

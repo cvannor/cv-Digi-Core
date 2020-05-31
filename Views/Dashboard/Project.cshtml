@@ -32,6 +32,10 @@
                         <textarea style="height: 200px;" class="form-control" asp-for="Description" required>@Model.Description</textarea>
                     </div>
                     <div class="form-row">
+                        <label for="validationDefault01">Project Link</label>
+                        <input type="text" asp-for="Link" value="@Model.Link" class="form-control" id="validationDefault01" required>
+                    </div>
+                    <div class="form-row">
                         <label for="validationDefault05">Images</label>
                         <div class="custom-file">
                             <input type="file" class="form-control custom-file-input" name="Images" id="validationDefault02" accept=".jpg, .png" multiple>
@@ -161,8 +165,12 @@
                 </div>
                 <div class="form-row">
                     <label for="validationDefault05">Description</label>
-                    <textarea style="height: 200px;"  class="form-control" asp-for="Description"></textarea>
+                    <textarea style="height: 200px;" class="form-control" asp-for="Description"></textarea>
 
+                </div>
+                <div class="form-row">
+                    <label for="validationDefault01">Project Link</label>
+                    <input type="text" asp-for="Link" class="form-control" id="validationDefault01" required>
                 </div>
                 <div class="form-row">
                     <label for="validationDefault05">Images</label>

@@ -17,6 +17,7 @@ namespace cvDigiCore.Models
         public DbSet<Images> Images { get; set; }
         public DbSet<Bridge> Bridges { get; set; }
 
+        public DbSet<Contact> Contacts { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

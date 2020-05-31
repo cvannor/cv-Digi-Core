@@ -3,11 +3,11 @@
     ViewData["Title"] = "Contact";
 }
 
-<div class="contact-page">
+<div class="contact-page contact-form-wrapper">
     <div class="container-fluid p-0">
         <div class="contact-row row no-gutters">
-            <div class="contact-info-panel col-md-6">
-                <div class="contact-content">
+            <div class="col-lg-3">
+                <!---<div class="contact-content">
                     <h1>Contact Me</h1>
                     <p>Im always open to talk about:</p>
                     <ul>
@@ -30,14 +30,19 @@
                         <i class="fas fa-chevron-down fa-2x" aria-hidden="true"></i>
                     </div>            
 
-                </div>
+                </div>-->
 
                 
                
             </div>
-            <div class="contact-form-wrapper col-md-6">
+            <div class=" col-lg-6">
                 <div class="contact-form">
                     <div class="row">
+                        <div class="contact-title">
+                            <h1>Contact Me</h1>
+                            <p>Lets talk buisness!</p>
+                        </div>
+                        
                         <form name="sentMessage" id="contactForm" novalidate="novalidate">
                             <div class="form-group">
                                 <label>Name</label>
@@ -59,10 +64,14 @@
                                 <textarea rows="5" class="form-control" placeholder="Message" id="message" required="required" data-validation-required-message="Please enter a message."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="save-contact">
+                                <label>Would you like to be saved as a contact?</label>
+                            </div>
                             <div class="feedback">
-                                <img id="checked" src="~/assets/checked.png" />
-                                <img id="alert" src="~/assets/icons8-high-risk-30.png" />
-                                <div id="success">
+                                <img  id="checked" src="~/assets/checked.png" />
+                                <img  id="alert" src="~/assets/icons8-high-risk-30.png" />
+                                <div style="display:inline-block" id="success">
                                 </div>
                             </div>
                             <div>
@@ -77,6 +86,7 @@
                 
 
             </div>
+            <div class="col-lg-3"></div>
         </div>
     </div>
 </div>

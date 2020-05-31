@@ -20,7 +20,7 @@ namespace cvDigiCore.Models
         public string EmailAddress { get; set; }
 
         [Required]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
 
     }
