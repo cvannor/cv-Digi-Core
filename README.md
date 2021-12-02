@@ -8,3 +8,4 @@ entries and a frontend UI that displays them.
 * EF Core
 * MVC architecture
 * CRUD application
+* Building REST Apis
